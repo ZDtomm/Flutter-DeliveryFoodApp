@@ -2,10 +2,12 @@ import 'package:e_food/Utils/colors.dart';
 import 'package:e_food/Utils/dimensions.dart';
 import 'package:e_food/widgets/app_icon.dart';
 import 'package:e_food/widgets/big_text.dart';
+import 'package:e_food/widgets/expandable_text_widget.dart';
 import 'package:e_food/widgets/icon_and_text.dart';
 import 'package:e_food/widgets/small_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 import '../../widgets/app_column.dart';
 
@@ -23,6 +25,7 @@ class _PopulerFoodDetailState extends State<PopulerFoodDetail> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
+          //background image
           Positioned(
               left: 0,
               right: 0,
@@ -36,6 +39,7 @@ class _PopulerFoodDetailState extends State<PopulerFoodDetail> {
                   ),
                 ),
               )),
+          //icon widget
           Positioned(
               top: Dimensions.height45,
               left: Dimensions.width20,
@@ -47,6 +51,7 @@ class _PopulerFoodDetailState extends State<PopulerFoodDetail> {
                   AppIcon(icon: Icons.shopping_cart_outlined),
                 ],
               )),
+          //Deskripsi
           Positioned(
             left: 0,
             right: 0,
@@ -73,7 +78,17 @@ class _PopulerFoodDetailState extends State<PopulerFoodDetail> {
                   SizedBox(
                     height: Dimensions.height20,
                   ),
-                  BigText(text: "Deskripsi")
+                  BigText(text: "Deskripsi"),
+                  SizedBox(
+                    height: Dimensions.height20,
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: ExpandableTextWidget(
+                          text:
+                              "Resep nasi goreng enak selalu tepat disajikan untuk makan pagi, siang, ataupun malam. Dengan topping telur, ayam suwir, udang, bakso sapi, dan bakso ikan, jadikan menu nasi goreng spesial berikut sebagai menu favorit baru untuk keluarga!.Resep nasi goreng enak selalu tepat disajikan untuk makan pagi, siang, ataupun malam. Dengan topping telur, ayam suwir, udang, bakso sapi, dan bakso ikan, jadikan menu nasi goreng spesial berikut sebagai menu favorit baru untuk keluarga!."),
+                    ),
+                  ),
                 ],
               ),
             ),
